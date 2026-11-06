@@ -6,6 +6,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-booking-conflict-overlay: var(--booking-conflict-overlay);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
@@ -27,6 +28,7 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -65,8 +67,8 @@
   --muted-foreground: #64748B;
   --accent: #F1F5F9;
   --accent-foreground: #1E293B;
-  --destructive: #FECACA;
-  --destructive-foreground: #991B1B;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
   --border: #E2E8F0;
   --input: #E2E8F0;
   --ring: #1E3A8A;
@@ -86,6 +88,7 @@
   --sidebar-accent-foreground: #1E293B;
   --sidebar-border: #E2E8F0;
   --sidebar-ring: #1E3A8A;
+  --booking-conflict-overlay: #D9ECFF;
 }
 
 .dark {
@@ -104,6 +107,7 @@
   --accent: #334155;
   --accent-foreground: #F8FAFC;
   --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
   --border: #334155;
   --input: #334155;
   --ring: #3B82F6;

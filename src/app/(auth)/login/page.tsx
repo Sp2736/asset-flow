@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { Eye, EyeOff, Lock, Mail, User, ShieldAlert } from "lucide-react";
 import Link from "next/link";
 
+import { useAuthStore } from "@/store/authStore";
 import { Button } from "@/components/ui/button";
 import {
   loginSchema,
@@ -29,8 +30,10 @@ function LoginForm() {
 
   useEffect(() => {
     if (tabParam === "signup") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab("signup");
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab("login");
     }
   }, [tabParam]);
@@ -57,15 +60,33 @@ function LoginForm() {
     defaultValues: { fullName: "", email: "", password: "" },
   });
 
+  const setProfile = useAuthStore((s) => s.setProfile);
+
   const onLogin = async (data: LoginInput) => {
     setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsLoading(false);
-    toast.success("Successfully logged in!");
-    router.push("/dashboard");
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+
+      if (!res.ok) {
+        throw new Error(json.error || "Failed to log in");
+      }
+
+      setProfile(json.profile);
+      toast.success("Successfully logged in!");
+      router.push("/dashboard");
+    } catch (err: any) {
+      toast.error(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const onSignup = async (data: SignupInput) => {
+  const onSignup = async (_data: SignupInput) => {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsLoading(false);
@@ -90,7 +111,7 @@ function LoginForm() {
             <span className="text-2xl font-bold text-primary-foreground tracking-wider">AF</span>
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-foreground">
-            Asset<span className="text-primary-foreground/80 dark:text-primary">Flow</span>
+            Asset<span className="text-primary">Flow</span>
           </h1>
           <p className="text-sm text-muted-foreground font-medium">
             Enterprise Asset & Resource Management
@@ -276,7 +297,7 @@ function LoginForm() {
               <div className="rounded-lg border border-positive-foreground/10 bg-positive/40 dark:bg-positive/10 p-3.5 text-xs text-positive-foreground dark:text-positive flex items-start space-x-2">
                 <ShieldAlert className="h-4 w-4 shrink-0 text-positive-foreground/80 dark:text-positive mt-0.5" />
                 <span>
-                  Creating an account registers you as an **Employee**. Administrative and management roles can only be assigned later by an Administrator.
+                  Creating an account registers you as an <strong>Employee</strong>. Administrative and management roles can only be assigned later by an Administrator.
                 </span>
               </div>
 
