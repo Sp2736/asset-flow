@@ -1,1 +1,13 @@
-export default function Page() { return <h1>New Booking TODO</h1>; }
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function NewBookingRedirect() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/bookings");
+  }, [router]);
+
+  return null;
+}

@@ -1,1 +1,13 @@
-export default function Page() { return <h1>Employees TODO</h1>; }
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function EmployeesRedirect() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/organization");
+  }, [router]);
+
+  return null;
+}

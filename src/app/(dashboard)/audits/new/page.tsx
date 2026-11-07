@@ -1,1 +1,13 @@
-export default function Page() { return <h1>New Audit TODO</h1>; }
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function NewAuditRedirect() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/audits");
+  }, [router]);
+
+  return null;
+}
