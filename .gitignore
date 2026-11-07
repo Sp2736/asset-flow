@@ -42,9 +42,12 @@ next-env.d.ts
 
 *.pdf
 # *.md
+commits.txt
 
 # Supabase
 supabase/.branches
 supabase/.temp
 
 # public/details
+/Microsoft
+/src/app_api_backup
