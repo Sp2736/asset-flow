@@ -522,3 +522,11 @@ AssetFlow was built for the **Odoo Hackathon (July 2026)** — an 8-hour online 
 <div align="center">
 <sub>Rules in the database. Workflow in the API. Clarity in the UI.</sub>
 </div>
+
+---
+
+## 📦 Project Snapshot
+
+<!--ARCHIVE_STATS_START-->
+<!-- auto-generated — do not edit manually -->
+<!--ARCHIVE_STATS_END-->
