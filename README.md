@@ -542,6 +542,6 @@ AssetFlow was built for the **Odoo Hackathon (July 2026)** — an 8-hour online 
 
 **Languages:** `TypeScript` 94.9%  `PLpgSQL` 3.9%  `CSS` 1.1%  `JavaScript` 0.1%
 
-**Top Contributors:** [@Sp2736](https://github.com/Sp2736) `24` · [@jalisa2106](https://github.com/jalisa2106) `22` · [@trupal286](https://github.com/trupal286) `7` · [@AduriteGem](https://github.com/AduriteGem) `4`
+**Top Contributors:** [@Sp2736](https://github.com/Sp2736) `30` · [@jalisa2106](https://github.com/jalisa2106) `22` · [@trupal286](https://github.com/trupal286) `7`
 
 <!--ARCHIVE_STATS_END-->
